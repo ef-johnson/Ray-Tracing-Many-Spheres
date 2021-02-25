@@ -1,9 +1,11 @@
 # Ray-Tracing-Many-Spheres
-This code performs Monte Carlo ray tracing to calculate thermal radiative transfer in domains of uniformly-sized spheres. Parallel C++.
 
-This code calculates the radiative View Factors or the Radiation Distribution Factors (RDF), between spheres of uniform size. The View Factor is more commonly known, being the fraction of rays which are emitted from surface 1 which strike surface 2; no reflections are accounted for. On the other hand, the RDF is the fraction of rays emitted from surface 1 which are _absorbed_ by surface 2, after any reflections off nearby spheres. Thus, the View Factor is the same as the RDF when the absorptivity of particles is 1, so this code can be used for either. Reflections are modeled as diffuse, though specular reflections may be added in the future. Spheres are opaque (transmissivity = 0), and absorptivity is specified by the user.
+This code performs Monte Carlo ray tracing to calculate the View Factors or Radiation Distribution Factors (RDF) in large groups of uniform-sized spheres, such as particle beds. 
 
-Operating systems: Built using Ubuntu 16.04. For running on Windows, you can enable “Ubuntu in Windows”. 
+Operating systems: Built using Ubuntu 16.04, using C++ with MPI. For running on Windows, you can enable “Ubuntu in Windows”. 
+
+The View Factor is more commonly known, being the fraction of rays which are emitted from surface 1 which strike surface 2; no reflections are accounted for. On the other hand, the RDF is the fraction of rays emitted from surface 1 which are _absorbed_ by surface 2, after any reflections off nearby spheres. Thus, the View Factor is the same as the RDF for the special case of absorptivity = 1, so this code can be used for either. Reflections are modeled as diffuse, though specular reflections may be added in the future. Spheres are opaque (transmissivity = 0), and absorptivity is specified by the user.
+
 
 How it works:
 
