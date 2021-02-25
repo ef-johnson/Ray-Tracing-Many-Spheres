@@ -41,3 +41,5 @@ The outputs are text files giving:
 1) A square matrix with the RDF values from each sphere to every other sphere
 2) A 4-column matrix with columns of Emitting Particle ID, Absorbing Particle ID, Center-to-Center Distance, and RDF.
 3) For simulations with a wall specified, a 3-column matrix with columns of Emitting Particle ID, Particle-center to Wall Distance, and Particle-Wall RDF
+
+Recommended additional software: Open the "pos" file in ParaView to visualize the sphere positions. 
