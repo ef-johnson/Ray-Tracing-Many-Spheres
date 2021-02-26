@@ -31,10 +31,10 @@ How to use it?
 More details are given in the thesis, but the basic steps are as follows. The only prerequisite in Ubuntu is to install openmpi (with, for example: sudo apt-get install openmpi-bin).
 1)	Download the "MCRT_example" folder, containing the source code and the directory structure
 2)	Place a text file in the “pos” directory with the xyz positions of the particle centers (often found with DEM, but an example pos file is given)
-3)	Place a “home_id” text file in the “pos” directory, specifying which particles will be the home (emitting) particles
+3)	Place a “home_id” text file in the “pos” directory, specifying which particles will be the home (emitting) particles (again, an initial example is given)
 4)	Open a terminal in the main RayTracingManySpheres folder
 5)	Issue a command to compile the code: mpicxx -std=c++11 MCRT_1.6.cpp -o MCRT_1.6
-6)	Run the executable (here, 4 is the number of processors specified): mpirun -np 4 PW_MCRT_1.6
+6)	Run the executable: mpirun -np 4 PW_MCRT_1.6 (here, 4 is the number of processors specified)
 7)	Answer the questions for the simulation parameters: number of photons to send per emitting particle, the total number of particles, the absorptivity, and the radius
 
 The outputs are text files giving: 
@@ -43,3 +43,4 @@ The outputs are text files giving:
 3) For simulations with a wall specified, a 3-column matrix with columns of Emitting Particle ID, Particle-center to Wall Distance, and Particle-Wall RDF
 
 Recommended additional software: Open the "pos" file in ParaView to visualize the sphere positions. 
+
