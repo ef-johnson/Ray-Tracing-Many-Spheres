@@ -1,1 +1,0 @@
-This file does nothing: It is simply placed here so the (otherwise empty) directory is downloaded from GitHub. This is because GitHub does not allow for empty directories. This file can be deleted. 
