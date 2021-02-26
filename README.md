@@ -1,6 +1,6 @@
 # Ray-Tracing-Many-Spheres
 
-This code performs Monte Carlo ray tracing to calculate the View Factors or Radiation Distribution Factors (RDF) in large groups of uniform-sized spheres, such as particle beds. 
+This code performs Monte Carlo ray tracing to calculate the View Factors or Radiation Distribution Factors (RDF) in groups of many (hundreds of thousands) of uniform-sized spheres, such as particle beds. 
 
 Operating systems: Built using Ubuntu 16.04, using C++ with MPI. For running on Windows, you can enable “Ubuntu in Windows”. 
 
@@ -9,7 +9,7 @@ The radiative View Factor is commonly known, being the fraction of rays emitted 
 
 How it works:
 
-The code takes the xyz positions of the particle centers (from a csv file) as the main input for ray tracing, which makes it work seamlessly with Discrete Element Method (DEM) particle simulations. DEM is a modeling technique where many spheres are inserted into space and simulated as they collide off each other and any walls. It is a good way to generate realistic domains of particles for studying packed beds or flowing groups of particles. DEM is used in many applications, including powder beds for sintering, chemical processing, nuclear pebble bed reactors, and concentrating solar power. The open source software LIGGGHTS was used in the development of this code, but any other DEM code could be used instead. To study a non-random arrangement of spheres (e.g. simple cubic packing), the sphere center positions could be calculated and written as a text file (with a program such as Matlab or Octave). 
+The code takes the xyz positions of the particle centers (from a space-delimited text file) as the main input for ray tracing, which makes it work seamlessly with Discrete Element Method (DEM) particle simulations. DEM is a modeling technique where many spheres are inserted into space and simulated as they collide off each other and any walls. It is a good way to generate realistic domains of particles for studying packed beds or flowing groups of particles. DEM is used in many applications, including powder beds for sintering, chemical processing, nuclear pebble bed reactors, and concentrating solar power. The open source software LIGGGHTS was used in the development of this code, but any other DEM code could be used instead. To study a non-random arrangement of spheres (e.g. simple cubic packing), the sphere center positions could be calculated and written as a text file (with a program such as Matlab or Octave). 
 
 The ray tracing process is as follows: Rays are traced from certain specified "home" (or "emitting") particles. The photon is released from a random position on the emitting sphere's surface, in a random direction in the outward-facing hemisphere from the emission location. The photon is traced until it hits another sphere, at which point the photon either absorbs or reflects from the surface. If the photon is reflected, a new random angle from the reflection location is chosen, and the path of the photon continues. When the photon is eventually absorbed, the photon's path is stopped and counted as an absorption by the absorbing sphere. Then a new photon is released from the emitting sphere, until many photons (typically 10^5 or more) have been emitted. This is repeated for any spheres specified as "home" spheres. At the end, the RDF between two spheres is calculated as the number of absorptions by the receiving sphere divided by the total number emitted from the "home" sphere. 
 
@@ -32,9 +32,9 @@ More details are given in the thesis, but the basic steps are as follows. The on
 1)	Download the "MCRT_example" folder, containing the source code and the directory structure
 2)	Place a text file in the “pos” directory with the xyz positions of the particle centers (often found with DEM, but an example pos file is given)
 3)	Place a “home_id” text file in the “pos” directory, specifying which particles will be the home (emitting) particles (again, an initial example is given)
-4)	Open a terminal in the main RayTracingManySpheres folder
+4)	Open a terminal in the MCRT_example folder
 5)	Issue a command to compile the code: mpicxx -std=c++11 MCRT_1.6.cpp -o MCRT_1.6
-6)	Run the executable: mpirun -np 4 PW_MCRT_1.6 (here, 4 is the number of processors specified)
+6)	Run the executable: mpirun -np 4 MCRT_1.6 (here, 4 is the number of processors specified)
 7)	Answer the questions for the simulation parameters: number of photons to send per emitting particle, the total number of particles, the absorptivity, and the radius
 
 The outputs are text files giving: 
