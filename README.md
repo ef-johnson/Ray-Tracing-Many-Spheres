@@ -29,7 +29,7 @@ A note about the code writing: This was my first significant effort in writing i
 
 How to use it? 
 More details are given in the thesis, but the basic steps are as follows. The only prerequisite in Ubuntu is to install openmpi (with, for example: sudo apt-get install openmpi-bin).
-1)	Download the source code and directory structure
+1)	Download the "MCRT_example" folder, containing the source code and the directory structure
 2)	Place a text file in the “pos” directory with the xyz positions of the particle centers (often found with DEM, but an example pos file is given)
 3)	Place a “home_id” text file in the “pos” directory, specifying which particles will be the home (emitting) particles
 4)	Open a terminal in the main RayTracingManySpheres folder
