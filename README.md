@@ -33,7 +33,7 @@ More details are given in the thesis, but the basic steps are as follows. The on
 2)	Place a text file in the “pos” directory with the xyz positions of the particle centers (often found with DEM, but an example pos file is given)
 3)	Place a “home_id” text file in the “pos” directory, specifying which particles will be the home (emitting) particles
 4)	Open a terminal in the main RayTracingManySpheres folder
-5)	Issue a command to compile the code: mpicxx -std=c++11 PW_MCRT_1.6.cpp -o PW_MCRT_1.6
+5)	Issue a command to compile the code: mpicxx -std=c++11 MCRT_1.6.cpp -o MCRT_1.6
 6)	Run the executable (here, 4 is the number of processors specified): mpirun -np 4 PW_MCRT_1.6
 7)	Answer the questions for the simulation parameters: number of photons to send per emitting particle, the total number of particles, the absorptivity, and the radius
 
