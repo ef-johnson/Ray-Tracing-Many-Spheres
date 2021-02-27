@@ -4,6 +4,8 @@ This code performs Monte Carlo ray tracing to calculate the View Factors or Radi
 
 Operating systems: Built using Ubuntu 16.04, using C++ with MPI. For running on Windows, you can enable “Ubuntu in Windows”. 
 
+A PDF called Background and Examples is included, which gives a simple practical example of how to use the code for both Particle-Particle and Particle-Wall ray tracing. 
+
 The radiative View Factor is commonly known, being the fraction of rays emitted from surface 1 which strike surface 2; no reflections are accounted for. On the other hand, the RDF is the fraction of rays emitted from surface 1 which are _absorbed_ by surface 2, after any reflections off nearby spheres. Thus, the View Factor is the same as the RDF for the special case of absorptivity = 1, so this code can be used for either. Reflections are modeled as diffuse, though specular reflections may be added in the future. Spheres are opaque (transmissivity = 0), and absorptivity is specified by the user.
 
 
@@ -17,11 +19,12 @@ Optionally, a single wall can also be specified, so the RDF or View Factor from 
 
 This code uses geometric optics to simulate rays, which is valid for particles which are large in comparison to the wavelength of light. This is true for most macro sized particles (e.g. from marbles down to a fine sand), but it may not be valid for particles only a few microns across. The code is built under the assumption of gray, diffuse emissions and reflections.
 
-This was developed during my PhD work at the Middle East Technical University in Ankara, Turkey. The relevant chapter from the thesis is uploaded to GitHub, which has more details on how to use the code. The code was validated using a simulation in Fluent. Further details can be found in the thesis and in the references below. If you use the code or the equations from it, please cite one of the following papers:
+This was developed during my PhD work at the Middle East Technical University in Ankara, Turkey. The code was validated using a simulation in Fluent, and further details can be found in the thesis and in the references below. If you use the code or the equations from it, please cite one of the following papers:
 
 [1] E.F. Johnson, İ. Tarı, D. Baker, Radiative heat transfer in the discrete element method using distance based approximations, Powder Technol. 380 (2021) 164–182. doi:10.1016/j.powtec.2020.11.050.
 
 [2] E. Johnson, İ. Tarı, D. Baker, A Monte Carlo method to solve for radiative effective thermal conductivity for particle beds of various solid fractions and emissivities, J. Quant. Spectrosc. Radiat. Transf. 250 (2020). doi:https://doi.org/10.1016/j.jqsrt.2020.107014. 
+
 
 The motivation for publishing this code is to provide a tool for researchers and students studying particle systems and powder beds. Others in literature have clearly developed similar codes, but they are generally not publically available. My hope is that others can use this code to develop or validate radiation models for particle beds. 
 
